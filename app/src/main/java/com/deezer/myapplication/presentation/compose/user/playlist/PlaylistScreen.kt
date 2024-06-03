@@ -1,17 +1,20 @@
-package com.deezer.myapplication.presentation.components.user.playlist
+package com.deezer.myapplication.presentation.compose.user.playlist
 
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.deezer.myapplication.presentation.intent.PlaylistIntent
 import com.deezer.myapplication.presentation.state.PlaylistState
 import com.deezer.myapplication.presentation.viewmodel.PlaylistViewModel
-import java.nio.file.WatchEvent.Modifier
 
 @Composable
 fun PlaylistScreen(navController: NavController, viewModel: PlaylistViewModel = hiltViewModel()) {
@@ -19,13 +22,21 @@ fun PlaylistScreen(navController: NavController, viewModel: PlaylistViewModel = 
     LaunchedEffect(Unit) {
         viewModel.intentChannel.send(PlaylistIntent.LoadPlaylists)
     }
-
     val state by viewModel.state.collectAsState()
 
-    when (state) {
-        is PlaylistState.Loading -> CircularProgressIndicator()
-        is PlaylistState.Success -> PlaylistList(navController, (state as PlaylistState.Success).playlists)
-        is PlaylistState.Error -> Text((state as PlaylistState.Error).message)
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        when (state) {
+            is PlaylistState.Loading -> CircularProgressIndicator()
+            is PlaylistState.Success -> PlaylistList(
+                navController,
+                (state as PlaylistState.Success).playlists
+            )
+
+            is PlaylistState.Error -> Text((state as PlaylistState.Error).message)
+        }
     }
 }
-

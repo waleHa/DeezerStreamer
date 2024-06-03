@@ -2,9 +2,12 @@ package com.deezer.myapplication.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.deezer.domain.UseCase.Tracks.SearchTracksUseCase
 import com.deezer.domain.UseCase.User.GetAUserPlaylistsUseCase
 import com.deezer.myapplication.presentation.intent.PlaylistIntent
+import com.deezer.myapplication.presentation.intent.SearchIntent
 import com.deezer.myapplication.presentation.state.PlaylistState
+import com.deezer.myapplication.presentation.state.SearchState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,15 +15,14 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.consumeAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
-
 @HiltViewModel
-class PlaylistViewModel @Inject constructor(
-    private val getPlaylistsUseCase: GetAUserPlaylistsUseCase
+class SearchViewModel @Inject constructor(
+    private val searchTracksUseCase: SearchTracksUseCase
 ) : ViewModel() {
 
-    val intentChannel = Channel<PlaylistIntent>(Channel.UNLIMITED)
-    private val _state = MutableStateFlow<PlaylistState>(PlaylistState.Loading)
-    val state: StateFlow<PlaylistState> get() = _state
+    val intentChannel = Channel<SearchIntent>(Channel.UNLIMITED)
+    private val _state = MutableStateFlow<SearchState>(SearchState.Loading)
+    val state: StateFlow<SearchState> get() = _state
 
     init {
         handleIntent()
@@ -30,22 +32,21 @@ class PlaylistViewModel @Inject constructor(
         viewModelScope.launch {
             intentChannel.consumeAsFlow().collect { intent ->
                 when (intent) {
-                    is PlaylistIntent.LoadPlaylists -> loadPlaylists()
+                    is SearchIntent.SearchTracks -> searchTracks(intent.query)
                 }
             }
         }
     }
 
-    private fun loadPlaylists() {
+    private fun searchTracks(query: String) {
         viewModelScope.launch {
-            _state.value = PlaylistState.Loading
+            _state.value = SearchState.Loading
             try {
-                val playlists = getPlaylistsUseCase()
-                _state.value = PlaylistState.Success(playlists)
+                val searchItems = searchTracksUseCase(query)
+                _state.value = SearchState.Success(searchItems)
             } catch (e: Exception) {
-                _state.value = PlaylistState.Error(e.message ?: "An error occurred")
+                _state.value = SearchState.Error(e.message ?: "An error occurred")
             }
         }
     }
 }
-

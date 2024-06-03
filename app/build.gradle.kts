@@ -94,8 +94,6 @@ dependencies {
 
     implementation ("androidx.work:work-runtime-ktx:2.7.0")
     implementation ("androidx.navigation:navigation-compose:2.5.3")
-    // https://mvnrepository.com/artifact/androidx.compose.material/material-icons-extended
-//    runtimeOnly("androidx.compose.material:material-icons-extended:1.6.7")
     implementation ("androidx.compose.material:material-icons-extended:1.6.7")
 
 

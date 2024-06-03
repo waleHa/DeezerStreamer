@@ -1,4 +1,4 @@
-package com.deezer.myapplication.presentation.components.user.track
+package com.deezer.myapplication.presentation.compose.user.track
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column

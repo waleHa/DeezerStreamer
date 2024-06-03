@@ -1,4 +1,4 @@
-package com.deezer.myapplication.presentation.components.user.playlist
+package com.deezer.myapplication.presentation.compose.user.playlist
 
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items

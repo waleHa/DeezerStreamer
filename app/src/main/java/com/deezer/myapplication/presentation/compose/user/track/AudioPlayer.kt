@@ -1,4 +1,4 @@
-package com.deezer.myapplication.presentation.components.user.track
+package com.deezer.myapplication.presentation.compose.user.track
 
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,7 +12,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
-import androidx.media3.ui.PlayerControlView
 import androidx.media3.ui.PlayerView
 
 

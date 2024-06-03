@@ -40,4 +40,21 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.google.firebase:firebase-auth:23.0.0")
+
+    // Jetpack Compose
+    implementation ("androidx.compose.ui:ui:1.1.0-alpha05")
+    implementation ("androidx.compose.ui:ui-tooling:1.1.0-alpha05")
+    implementation ("androidx.compose.foundation:foundation:1.1.0-alpha05")
+    implementation( "androidx.compose.material:material:1.1.0-alpha05")
+    implementation ("androidx.compose.material:material-icons-core:1.1.0-alpha05")
+    implementation ("androidx.compose.material:material-icons-extended:1.1.0-alpha05")
+
+// Coil for image loading (for the `ImageComponent` function)
+    implementation ("io.coil-kt:coil-compose:1.4.0")
+
+// You might also need Kotlin Coroutines for asynchronous operations
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0")
+
 }

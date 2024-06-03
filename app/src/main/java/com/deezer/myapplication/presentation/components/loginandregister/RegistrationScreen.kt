@@ -1,4 +1,6 @@
 package com.deezer.myapplication.presentation.components.loginandregister
+
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -7,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -53,7 +56,8 @@ fun RegistrationScreen(navController: NavController) {
     val (registrationError, setRegistrationError) = remember { mutableStateOf<String?>(null) }
 
 
-    val isFormValid = firstName.isNotBlank() && lastName.isNotBlank() && email.isNotBlank() && password.isNotBlank() && termsAccepted
+    val isFormValid =
+        firstName.isNotBlank() && lastName.isNotBlank() && email.isNotBlank() && password.isNotBlank() && termsAccepted
     val auth = FirebaseAuth.getInstance()
 
     Column(
@@ -63,8 +67,18 @@ fun RegistrationScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Image(
+            modifier = Modifier
+                .size(250.dp)
+                .padding(bottom = 16.dp),
+            painter = painterResource(id = R.drawable.logo), contentDescription = null
+        )
         Text("Hey there,", style = MaterialTheme.typography.headlineMedium)
-        Text("Create an Account", style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Bold)
+        Text(
+            "Create an Account",
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold
+        )
         Spacer(modifier = Modifier.height(24.dp))
 
         OutlinedTextField(
@@ -101,7 +115,10 @@ fun RegistrationScreen(navController: NavController) {
             leadingIcon = { Icon(Icons.Default.Lock, contentDescription = "Password") },
             trailingIcon = {
                 IconButton(onClick = { setPasswordVisible(!passwordVisible) }) {
-                    Icon(if (passwordVisible) Icons.Default.VisibilityOff else Icons.Default.Visibility, contentDescription = "Toggle Password Visibility")
+                    Icon(
+                        if (passwordVisible) Icons.Default.VisibilityOff else Icons.Default.Visibility,
+                        contentDescription = "Toggle Password Visibility"
+                    )
                 }
             },
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
@@ -174,7 +191,7 @@ private fun handleRegistration(
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    navController.navigate("playlists")
+                    navController.navigate("login")
                 } else {
                     setRegistrationError(task.exception?.message)
                 }

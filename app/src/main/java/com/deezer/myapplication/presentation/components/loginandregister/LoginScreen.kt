@@ -1,6 +1,7 @@
 package com.deezer.myapplication.presentation.components.loginandregister
 
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -28,6 +30,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -36,6 +39,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.deezer.myapplication.R
 import com.deezer.myapplication.presentation.theme.DeezerStreamerTheme
 import com.google.firebase.auth.FirebaseAuth
 
@@ -56,6 +60,11 @@ fun LoginScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+        Image(
+            modifier = Modifier
+                .size(250.dp)
+                .padding(bottom = 16.dp),
+            painter = painterResource(id = R.drawable.logo), contentDescription = null)
         Text("Hey there,", style = MaterialTheme.typography.headlineSmall)
         Text(
             "Welcome Back",

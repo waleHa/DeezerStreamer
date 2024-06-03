@@ -71,7 +71,7 @@ fun RegistrationScreen(navController: NavController) {
             modifier = Modifier
                 .size(250.dp)
                 .padding(bottom = 16.dp),
-            painter = painterResource(id = R.drawable.logo), contentDescription = null
+            painter = painterResource(id = R.drawable.deezer_logo), contentDescription = null
         )
         Text("Hey there,", style = MaterialTheme.typography.headlineMedium)
         Text(

@@ -53,6 +53,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":core"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -75,13 +78,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 
-    //Retrofit
-    implementation ("com.squareup.retrofit2:retrofit:2.10.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.10.0")
-    //okhttp
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.9.0")
+
     //Hilt
     implementation ("com.google.dagger:hilt-android:2.51.1")
     kapt ("com.google.dagger:hilt-compiler:2.51.1")

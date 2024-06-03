@@ -3,7 +3,7 @@ package com.deezer.myapplication.presentation.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.deezer.myapplication.domain.UseCase.User.GetAUserTracksUseCase
+import com.deezer.domain.UseCase.User.GetAUserTracksUseCase
 import com.deezer.myapplication.presentation.intent.TrackIntent
 import com.deezer.myapplication.presentation.state.TrackState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TrackViewModel @Inject constructor(
-    private val getTracksUseCase: GetAUserTracksUseCase
+    private val getTracksUseCase: com.deezer.domain.UseCase.User.GetAUserTracksUseCase
 ) : ViewModel() {
 
     val intentChannel = Channel<TrackIntent>(Channel.UNLIMITED)

@@ -2,7 +2,7 @@ package com.deezer.myapplication.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.deezer.myapplication.domain.UseCase.User.GetAUserPlaylistsUseCase
+import com.deezer.domain.UseCase.User.GetAUserPlaylistsUseCase
 import com.deezer.myapplication.presentation.intent.PlaylistIntent
 import com.deezer.myapplication.presentation.state.PlaylistState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PlaylistViewModel @Inject constructor(
-    private val getPlaylistsUseCase: GetAUserPlaylistsUseCase
+    private val getPlaylistsUseCase: com.deezer.domain.UseCase.User.GetAUserPlaylistsUseCase
 ) : ViewModel() {
 
     val intentChannel = Channel<PlaylistIntent>(Channel.UNLIMITED)

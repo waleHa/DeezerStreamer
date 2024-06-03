@@ -1,6 +1,6 @@
 package com.deezer.myapplication.presentation.state
 
-import com.deezer.myapplication.data.remote.model.TrackItem
+import com.deezer.domain.remotemodel.TrackItem
 
 sealed class TrackState {
     data object Loading : TrackState()

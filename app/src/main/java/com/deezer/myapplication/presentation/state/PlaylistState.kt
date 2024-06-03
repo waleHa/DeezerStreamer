@@ -1,6 +1,6 @@
 package com.deezer.myapplication.presentation.state
 
-import com.deezer.myapplication.data.remote.model.PlaylistItem
+import com.deezer.domain.remotemodel.PlaylistItem
 
 sealed class PlaylistState {
     data object Loading : PlaylistState()

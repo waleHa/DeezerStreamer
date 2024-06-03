@@ -10,12 +10,11 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberImagePainter
-import com.deezer.myapplication.core.toReadableDate
-import com.deezer.myapplication.data.remote.model.PlaylistItem
+import com.deezer.core.toReadableDate
+import com.deezer.domain.remotemodel.PlaylistItem
 
 @Composable
 fun PlaylistItem(

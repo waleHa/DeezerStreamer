@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1068048872023",
+    "project_id": "deezerstreamer-542c3",
+    "storage_bucket": "deezerstreamer-542c3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068048872023:android:5c5c5f1b443f253e2e2912",
+        "android_client_info": {
+          "package_name": "com.deezer.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDloeQ_4jdscPJzrtuhbOmeU9pbECRDARs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

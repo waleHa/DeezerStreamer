@@ -9,10 +9,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.deezer.core.Constant
+
+
 
 @Composable
 fun SearchItemDetailOptions(
-    searchItemId: String,
+    artistId: String,
+    albumId: String,
     navController: NavController
 ) {
     Column(
@@ -22,7 +26,8 @@ fun SearchItemDetailOptions(
     ) {
         Button(
             onClick = {
-                navController.navigate("artistDetail/$searchItemId")
+                Constant.ARTIST_DEFAULT = artistId
+                navController.navigate("artist/$artistId")
             },
             modifier = Modifier
                 .fillMaxWidth()
@@ -32,7 +37,8 @@ fun SearchItemDetailOptions(
         }
         Button(
             onClick = {
-                navController.navigate("albumDetail/$searchItemId")
+                Constant.ALBUM_DEFAULT = albumId
+                navController.navigate("album/$albumId")
             },
             modifier = Modifier.fillMaxWidth()
         ) {

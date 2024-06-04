@@ -39,11 +39,11 @@ class ArtistViewModel @Inject constructor(
             _state.value = ArtistDetailState.Loading
             try {
                 val artist = getArtistsByIdUseCase(artistId)
-                _state.value = ArtistDetailState.Success(artist)
+                val tracks = getArtistsByIdUseCase.getTracks(artistId)
+                _state.value = ArtistDetailState.Success(artist, tracks)
             } catch (e: Exception) {
                 _state.value = ArtistDetailState.Error(e.message ?: "An error occurred")
             }
         }
     }
 }
-

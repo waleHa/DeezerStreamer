@@ -12,7 +12,7 @@ import com.deezer.myapplication.presentation.compose.album.AlbumDetailScreen
 import com.deezer.myapplication.presentation.compose.podcast.PodcastDetailScreen
 import com.deezer.myapplication.presentation.compose.podcast.PodcastScreen
 import com.deezer.myapplication.presentation.compose.radio.RadioScreen
-import com.deezer.myapplication.presentation.compose.artist.ArtistDetailScreen
+import com.deezer.myapplication.presentation.compose.artist.ArtistScreen
 import com.deezer.myapplication.presentation.compose.track.search.SearchItemDetailOptions
 import com.deezer.myapplication.presentation.compose.track.search.SearchTrackScreen
 import com.deezer.myapplication.presentation.compose.user.playlist.PlaylistScreen
@@ -31,14 +31,15 @@ fun NavGraph(navController: NavHostController) {
         composable("search") {
             SearchTrackScreen(navController = navController, modifier = Modifier)
         }
-
-        composable("searchItem/{searchItemId}") { backStackEntry ->
-            val searchItemId = backStackEntry.arguments?.getString("searchItemId") ?: ""
-            SearchItemDetailOptions(searchItemId = searchItemId, navController = navController)
+        composable("searchItemDetail/{artistId}/{albumId}") { backStackEntry ->
+            val artistId = backStackEntry.arguments?.getString("artistId") ?: ""
+            val albumId = backStackEntry.arguments?.getString("albumId") ?: ""
+            SearchItemDetailOptions(artistId = artistId, albumId = albumId, navController = navController)
         }
+
         composable("artist/{artistId}") { backStackEntry ->
             val artistId = backStackEntry.arguments?.getString("artistId") ?: Constant.ARTIST_DEFAULT
-            ArtistDetailScreen(artistId = artistId)
+            ArtistScreen(artistId = artistId)
         }
         composable("album/{albumId}") { backStackEntry ->
             val albumId = backStackEntry.arguments?.getString("albumId") ?: Constant.ALBUM_DEFAULT

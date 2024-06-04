@@ -25,8 +25,8 @@ fun SearchItemRow(
             .fillMaxWidth()
             .padding(8.dp)
             .clickable {
-                // Navigate to detail screen with search item ID
-                navController.navigate("searchItemDetail/${searchItem.id}")
+                // Navigate to detail screen with artist and album ID
+                navController.navigate("searchItemDetail/${searchItem.artist?.id}/${searchItem.album?.id}")
             },
         elevation = CardDefaults.cardElevation(4.dp)
     ) {

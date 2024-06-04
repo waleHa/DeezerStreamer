@@ -5,7 +5,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
-import com.deezer.domain.remotemodel.PlaylistItem
+import com.deezer.domain.remotemodel.playlist.PlaylistItem
 
 @Composable
 fun PlaylistList(navController: NavController, playlists: List<PlaylistItem>, modifier: Modifier=Modifier) {

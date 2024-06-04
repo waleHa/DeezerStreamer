@@ -1,6 +1,6 @@
 package com.deezer.domain.UseCase.User
 
-import com.deezer.domain.remotemodel.PlaylistItem
+import com.deezer.domain.remotemodel.playlist.PlaylistItem
 import com.deezer.domain.repository.DeezerRepository
 import javax.inject.Inject
 

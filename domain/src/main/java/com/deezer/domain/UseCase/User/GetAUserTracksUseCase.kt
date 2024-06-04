@@ -1,7 +1,7 @@
 package com.deezer.domain.UseCase.User
 
 import android.util.Log
-import com.deezer.domain.remotemodel.TrackItem
+import com.deezer.domain.remotemodel.track.TrackItem
 import com.deezer.domain.repository.DeezerRepository
 import javax.inject.Inject
 

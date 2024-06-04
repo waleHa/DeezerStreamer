@@ -16,7 +16,7 @@ import coil.compose.rememberImagePainter
 
 
 @Composable
-fun HorizontalDivider(modifier: Modifier = Modifier) {
+fun HorizontalDividerComponent(modifier: Modifier = Modifier) {
     HorizontalDivider(
         modifier = modifier,
         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)

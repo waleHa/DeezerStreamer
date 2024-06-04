@@ -11,9 +11,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.deezer.myapplication.presentation.intent.TrackIntent
-import com.deezer.myapplication.presentation.state.TrackState
-import com.deezer.myapplication.presentation.viewmodel.TrackViewModel
+import com.deezer.myapplication.presentation.viewmodel.track.TrackIntent
+import com.deezer.myapplication.presentation.viewmodel.track.TrackState
+import com.deezer.myapplication.presentation.viewmodel.track.TrackViewModel
 
 @Composable
 fun TrackScreen(playlistId: String, viewModel: TrackViewModel = hiltViewModel()) {

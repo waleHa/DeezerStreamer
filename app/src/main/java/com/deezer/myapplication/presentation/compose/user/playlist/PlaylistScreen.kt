@@ -12,9 +12,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.deezer.myapplication.presentation.intent.PlaylistIntent
-import com.deezer.myapplication.presentation.state.PlaylistState
-import com.deezer.myapplication.presentation.viewmodel.PlaylistViewModel
+import com.deezer.myapplication.presentation.viewmodel.playlist.PlaylistIntent
+import com.deezer.myapplication.presentation.viewmodel.playlist.PlaylistState
+import com.deezer.myapplication.presentation.viewmodel.playlist.PlaylistViewModel
 
 @Composable
 fun PlaylistScreen(navController: NavController, viewModel: PlaylistViewModel = hiltViewModel()) {

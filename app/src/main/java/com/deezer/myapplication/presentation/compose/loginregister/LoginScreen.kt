@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
@@ -15,7 +14,6 @@ import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
-import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -122,9 +120,9 @@ fun LoginScreen(navController: NavController) {
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            HorizontalDivider(modifier = Modifier.weight(1f))
+            HorizontalDividerComponent(modifier = Modifier.weight(1f))
             Text("Or", modifier = Modifier.padding(8.dp))
-            HorizontalDivider(modifier = Modifier.weight(1f))
+            HorizontalDividerComponent(modifier = Modifier.weight(1f))
         }
         SpacerComponent(height = 16.dp)
 

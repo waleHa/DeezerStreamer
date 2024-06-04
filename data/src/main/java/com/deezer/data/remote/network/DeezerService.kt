@@ -8,6 +8,7 @@ import com.deezer.domain.remotemodel.track.SearchList
 import com.deezer.domain.remotemodel.track.TrackList
 import com.deezer.domain.remotemodel.album.AlbumList
 import com.deezer.domain.remotemodel.podcast.PodcastList
+import com.deezer.domain.remotemodel.radio.RadioResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -16,7 +17,7 @@ interface DeezerService {
     @GET("user/{userId}/playlists")
     suspend fun getPlaylist(@Path("userId") id: String = "6100338481"): PlaylistList
 
-    @GET("user/6100338481/podcasts")
+    @GET("user/{userId}/podcasts")
     suspend fun getPodcast(@Path("userId") id: String = "6100338481"): PodcastList
 
     @GET("playlist/{playlistId}/tracks")
@@ -32,7 +33,7 @@ interface DeezerService {
     suspend fun getArtistsById(@Path("artistId") id: String = Constant.ARTIST_DEFAULT): Artist
 
     @GET("radio")
-    suspend fun getRadio(): List<RadioItem>
+    suspend fun getRadio(): RadioResponse
 
 
 }

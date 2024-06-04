@@ -6,6 +6,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -17,6 +21,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.deezer.domain.remotemodel.track.TrackItem
+import com.deezer.myapplication.presentation.compose.component.AudioPlayer
 import com.deezer.myapplication.presentation.compose.component.ImageComponent
 import com.deezer.myapplication.presentation.compose.component.SpacerComponent
 import com.deezer.myapplication.presentation.compose.component.TextComponent
@@ -44,39 +50,49 @@ fun AlbumDetailScreen(
             )
         }
         is AlbumDetailState.Success -> {
-            val albumList = (state as AlbumDetailState.Success).albumList
+            val album = (state as AlbumDetailState.Success).albumList
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp)
             ) {
                 TextComponent(
-                    text = albumList.title ?: "Unknown Album",
+                    text = album.title ?: "Unknown Album",
                     style = MaterialTheme.typography.headlineMedium
                 )
                 SpacerComponent(height = 16.dp)
                 ImageComponent(
-                    imageUrl = albumList.coverXl ?: "",
-                    contentDescription = albumList.title,
+                    imageUrl = album.coverXl ?: "",
+                    contentDescription = album.title,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(250.dp)
+                        .height(200.dp)
                 )
                 SpacerComponent(height = 16.dp)
                 TextComponent(
-                    text = "ID: ${albumList.id}",
+                    text = "ID: ${album.id}",
                     style = MaterialTheme.typography.bodyLarge
                 )
                 SpacerComponent(height = 8.dp)
                 TextComponent(
-                    text = "Release Date: ${albumList.releaseDate}",
+                    text = "Release Date: ${album.releaseDate}",
                     style = MaterialTheme.typography.bodyLarge
                 )
                 SpacerComponent(height = 8.dp)
                 TextComponent(
-                    text = "Number of Tracks: ${albumList.nbTracks}",
+                    text = "Number of Tracks: ${album.nbTracks}",
                     style = MaterialTheme.typography.bodyLarge
                 )
+                SpacerComponent(height = 16.dp)
+                TextComponent(
+                    text = "Tracks:",
+                    style = MaterialTheme.typography.headlineSmall
+                )
+                LazyColumn {
+                    items(requireNotNull(album.trackList?.trackItems)) { track ->
+                        TrackItemRow(track)
+                    }
+                }
             }
         }
         is AlbumDetailState.Error -> {
@@ -89,6 +105,27 @@ fun AlbumDetailScreen(
                     .fillMaxWidth()
                     .padding(16.dp)
             )
+        }
+    }
+}
+
+@Composable
+fun TrackItemRow(track: TrackItem) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(8.dp),
+        elevation = CardDefaults.cardElevation(4.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp)
+        ) {
+            TextComponent(
+                text = track.title ?: "Unknown Title",
+                style = MaterialTheme.typography.bodyLarge
+            )
+            SpacerComponent(height = 8.dp)
+            AudioPlayer(previewUrl = track.preview ?: "")
         }
     }
 }

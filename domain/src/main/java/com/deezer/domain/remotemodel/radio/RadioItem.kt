@@ -3,6 +3,12 @@ package com.deezer.domain.remotemodel.radio
 
 import com.google.gson.annotations.SerializedName
 
+
+data class RadioResponse(
+    @SerializedName("data")
+    val data: List<RadioItem>
+)
+
 data class RadioItem(
     @SerializedName("id")
     val id: Int? = 0,

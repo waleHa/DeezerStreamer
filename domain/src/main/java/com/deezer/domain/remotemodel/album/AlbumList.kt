@@ -35,7 +35,7 @@ data class AlbumList(
     @SerializedName("genre_id")
     val genreId: Int? = 0,
     @SerializedName("genres")
-    val genres: List<GenreItem?>? = listOf(),
+    val genres: GenresWrapper? = GenresWrapper(),
     @SerializedName("id")
     val id: Int? = 0,
     @SerializedName("label")
@@ -63,3 +63,10 @@ data class AlbumList(
     @SerializedName("upc")
     val upc: String? = ""
 )
+
+data class GenresWrapper(
+    @SerializedName("data")
+    val data: List<GenreItem?>? = listOf()
+)
+
+

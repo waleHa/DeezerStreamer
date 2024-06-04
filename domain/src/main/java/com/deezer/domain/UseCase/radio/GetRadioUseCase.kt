@@ -6,6 +6,6 @@ import javax.inject.Inject
 
 class GetRadioUseCase @Inject constructor(private val repository: DeezerRepository) {
     suspend operator fun invoke(): List<RadioItem> {
-        return repository.getRadio()
+        return repository.getRadio().data
     }
 }

@@ -12,7 +12,7 @@ import com.deezer.myapplication.presentation.compose.album.AlbumDetailScreen
 import com.deezer.myapplication.presentation.compose.podcast.PodcastDetailScreen
 import com.deezer.myapplication.presentation.compose.podcast.PodcastScreen
 import com.deezer.myapplication.presentation.compose.radio.RadioScreen
-import com.deezer.myapplication.presentation.compose.track.search.ArtistDetailScreen
+import com.deezer.myapplication.presentation.compose.artist.ArtistDetailScreen
 import com.deezer.myapplication.presentation.compose.track.search.SearchItemDetailOptions
 import com.deezer.myapplication.presentation.compose.track.search.SearchTrackScreen
 import com.deezer.myapplication.presentation.compose.user.playlist.PlaylistScreen

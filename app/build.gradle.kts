@@ -80,12 +80,14 @@ dependencies {
 
 
     //Hilt
+
     implementation ("com.google.dagger:hilt-android:2.51.1")
     kapt ("com.google.dagger:hilt-compiler:2.51.1")
     implementation ("androidx.hilt:hilt-navigation-fragment:1.0.0")
     implementation("androidx.hilt:hilt-work:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
-
+    androidTestImplementation ("com.google.dagger:hilt-android-testing:2.51")
+    kaptAndroidTest ("com.google.dagger:hilt-android-compiler:2.51")
     //
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
 
@@ -96,5 +98,10 @@ dependencies {
     implementation ("androidx.navigation:navigation-compose:2.5.3")
     implementation ("androidx.compose.material:material-icons-extended:1.6.7")
 
+    // MockK for mocking
+    testImplementation ("org.mockito:mockito-core:5.3.0")
+    androidTestImplementation ("org.mockito:mockito-android:5.3.0")
+
+    debugImplementation ("androidx.compose.ui:ui-test-manifest:1.6.7")
 
 }
